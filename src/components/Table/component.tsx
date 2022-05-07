@@ -36,21 +36,26 @@ const Table = () => {
   return (
       <div>
         <table>
-          <tr>
+          <thead>
+            <tr>
             <th>Name</th>
             <th>Body Type</th>
             <th>Flattening</th>
             <th>Density</th>
             <th>Gravity</th>
           </tr>
-          {result.bodies?.map((item) => 
-          <tr>
+          </thead>
+          <tbody>
+            {result.bodies?.map((item) => 
+          <tr key={item.id}>
             <td>{item.englishName}</td>
             <td>{item.bodyType}</td> 
             <td>{item.escape}</td>  
             <td>{item.density}</td>
             <td>{item.gravity}</td>
           </tr>)}
+          </tbody>
+          
         </table>
       </div>
 
