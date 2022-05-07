@@ -8,18 +8,25 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import { AuthProvider } from './components/Authorization/context';
+import RequireAuth from './components/Authorization/requireAuth';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />}>
-        </Route>
-        <Route path="/planets" element={<Table/>}>
-          
-        </Route>
-      </Routes>
-  </Router>
+    <AuthProvider>
+      <Router>
+          <Routes>
+            <Route path="/" element={<Login />}>
+            </Route>
+            <Route path="/planets" element={
+              <RequireAuth>
+                <Table/>
+              </RequireAuth>
+            }>
+            </Route>
+          </Routes>
+        </Router>
+    </AuthProvider>
   );
 }
 

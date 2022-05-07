@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Authorization/context';
 
 //API https://api.le-systeme-solaire.net/en/
 
@@ -17,6 +19,8 @@ interface Planet {
 
 const Table = () => {
     const [result, setResult] = useState<Result>({});
+    let navigate = useNavigate();
+    const auth = useContext(AuthContext);
 
     useEffect(() => {
       const fetchItems = async () => {
@@ -30,11 +34,17 @@ const Table = () => {
         }
         };
       fetchItems();
-      console.log(result.bodies)
+      // console.log(result.bodies)
     }, []);
+
+    const handleLogout = () => {
+      auth.signout(() => navigate("/"));
+      console.log(auth.user)
+    }
     
   return (
       <div>
+        <button onClick={handleLogout}>Sign out</button>
         <table>
           <thead>
             <tr>
@@ -55,7 +65,6 @@ const Table = () => {
             <td>{item.gravity}</td>
           </tr>)}
           </tbody>
-          
         </table>
       </div>
 
