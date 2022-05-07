@@ -5,9 +5,16 @@ import PropTypes from 'prop-types'
 const Login = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
+  const hardUser = 'Astronaut';
+  const hardPassword = "Planet1";
 
   const handleLogin = () => {
-    console.log(`login: ${user} , password: ${password} `)
+    if ((user === hardUser) && (password === hardPassword)) {
+      console.log(`See your planets!`)
+    } else {
+      console.log('wrong login or password!')
+    }
+    
   }
 
   return (
