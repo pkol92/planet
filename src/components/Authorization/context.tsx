@@ -1,5 +1,4 @@
-import { getSuggestedQuery } from "@testing-library/react";
-import React, { createContext, ReactNode, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useState } from "react";
 import authProvider from "./provider";
 
 interface User {
@@ -17,8 +16,8 @@ const AuthContext = createContext<AuthContextType>(null!);
   
 const AuthProvider = ({ children }: { children: ReactNode }) => {
     const hardUser: User = {
-            name: "Astronaut",
-            password: "Planet1",
+        name: "Astronaut",
+        password: "Planet1",
     }
 
     let [user, setUser] = useState(() => {
@@ -34,60 +33,6 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
             return null
         }
     });
-    console.log(user);
-    // let isLocalUser = () => {
-    //     const storage = localStorage.getItem('user');
-    //     if (storage) {
-    //      const localUser: User = JSON.parse(storage);
-    //     //  return localUser === hardUser? authProvider.signin(()=> setUser(localUser)) : setUser(null);
-    //         if (localUser.name === hardUser.name && localUser.password === hardUser.password) {
-    //             console.log("to samo");
-    //             authProvider.islogin(() => {
-    //                setUser(hardUser); 
-    //             }); 
-    //             // authProvider.signin(() => {
-    //             //     setUser(hardUser);
-    //             //     callback();
-    //             //   })
-    //         } else {
-    //             console.log("inne")
-    //             setUser(null)
-    //         }
-    //     } else {
-    //         console.log("nie ma sklepu")
-    //         return setUser(null)
-    //     }
-    //     console.log(user)
-    // }
-
-    // useEffect(() => {
-    //     const lokal = JSON.parse(localStorage.getItem('user')!);
-    //     setUser(hardUser);
-    //     console.log(user);
-    //     // if (storage) {
-    //     //  const localUser: User = JSON.parse(storage);
-    //     // //  return localUser === hardUser? authProvider.signin(()=> setUser(localUser)) : setUser(null);
-    //     //     if (localUser.name === hardUser.name && localUser.password === hardUser.password) {
-    //     //         console.log("to samo");
-    //     //         authProvider.islogin(() => {
-    //     //            setUser(hardUser); 
-    //     //         }); 
-    //     //         // authProvider.signin(() => {
-    //     //         //     setUser(hardUser);
-    //     //         //     callback();
-    //     //         //   })
-    //     //     } else {
-    //     //         console.log("inne")
-    //     //         setUser(null)
-    //     //     }
-    //     // } else {
-    //     //     console.log("nie ma sklepu")
-    //     //     return setUser(null)
-    //     // }
-    //     // console.log(user)
-    //     // }
-       
-    //   },[]);
 
     let signin = (newUser: User, callback: VoidFunction) => {
       return authProvider.signin(() => {
@@ -100,6 +45,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     let signout = (callback: VoidFunction) => {
       return authProvider.signout(() => {
         setUser(null);
+        localStorage.removeItem('user');
         callback();
       });
     };
