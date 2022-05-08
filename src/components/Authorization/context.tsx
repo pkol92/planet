@@ -8,6 +8,7 @@ interface User {
 
 interface AuthContextType {
     user: User|null;
+    hardUser: User;
     signin: (user: User, callback: VoidFunction) => void;
     signout: (callback: VoidFunction) => void;
 }
@@ -25,6 +26,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (storage) {
             const localUser: User = JSON.parse(storage);
             if (localUser.name === hardUser.name && localUser.password === hardUser.password) {
+                authProvider.isAuthenticated = true;
                 return hardUser;
             } else {
                 return null
@@ -50,7 +52,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       });
     };
   
-    let value = { user, signin, signout };
+    let value = { user, signin, signout, hardUser };
   
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
