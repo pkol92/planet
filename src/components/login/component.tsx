@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react';
-import PropTypes from 'prop-types'
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../Authorization/context';
 
 const Login = () => {
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
   const hardUser = 'Astronaut';
   const hardPassword = "Planet1";
+  const auth = useContext(AuthContext);
+  let navigate = useNavigate();
 
   const handleLogin = () => {
     if ((user === hardUser) && (password === hardPassword)) {
-      console.log(`See your planets!`)
+      let newUser = {
+        name: user,
+        password: password,
+      }
+
+      auth.signin(newUser, ()=> navigate('../planets'));
+      
+      console.log(`See your planets!`, auth.user)
     } else {
-      console.log('wrong login or password!')
+      console.log('wrong login or password!', auth.user)
     }
     
   }
@@ -29,7 +39,5 @@ const Login = () => {
     </div>
   )
 }
-
-// Login.propTypes = {}
 
 export default Login;
