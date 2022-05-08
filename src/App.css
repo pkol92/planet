@@ -123,3 +123,7 @@ table {
   border-collapse: collapse;
   width: 60%;
 }
+
+thead {
+  font-size: 1.1rem;
+}
