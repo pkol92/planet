@@ -18,34 +18,34 @@ interface Planet {
 }
 
 const Table = () => {
-    const [result, setResult] = useState<Result>({});
-    let navigate = useNavigate();
-    const auth = useContext(AuthContext);
+  const [result, setResult] = useState<Result>({});
+  let navigate = useNavigate();
+  const auth = useContext(AuthContext);
 
-    useEffect(() => {
-      const fetchItems = async () => {
-        try {
-          const fetchingItems = await fetch("https://api.le-systeme-solaire.net/rest/bodies/?data=id,englishName,escape,bodyType,density,gravity");
-          const data = await fetchingItems.json();
-  
-          setResult(data);
-        } catch (err) {
-            console.log(err);
-        }
-        };
-      fetchItems();
-      // console.log(result.bodies)
-    }, []);
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const fetchingItems = await fetch("https://api.le-systeme-solaire.net/rest/bodies/?data=id,englishName,escape,bodyType,density,gravity");
+        const data = await fetchingItems.json();
 
-    const handleLogout = () => {
-      auth.signout(() => navigate("/"));
-      console.log(auth.user)
-    }
+        setResult(data);
+      } catch (err) {
+          console.log(err);
+      }
+      };
+
+    fetchItems();
+    
+  }, []);
+
+  const handleLogout = () => {
+    auth.signout(() => navigate("/"));
+  }
     
   return (
-      <div>
-        <button onClick={handleLogout}>Sign out</button>
-        <table>
+      <div className='tablePage'>
+        <button className='logoutButton' onClick={handleLogout}>Sign out</button>
+        <table className='table'>
           <thead>
             <tr>
             <th>Name</th>
