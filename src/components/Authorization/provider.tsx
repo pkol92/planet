@@ -8,6 +8,10 @@ const authProvider = {
       authProvider.isAuthenticated = false;
       setTimeout(callback, 100);
     },
+    islogin(callback: VoidFunction) {
+      authProvider.isAuthenticated = true;
+      setTimeout(callback, 100);
+    }
   };
   
 export default authProvider;
