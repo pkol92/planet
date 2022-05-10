@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Login from './components/Login/component';
-import Table from './components/Table/component';
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,6 +9,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider } from './components/Authorization/context';
 import RequireAuth from './components/Authorization/requireAuth';
+import { PlanetsData } from './components/PlanetsData/component';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             </Route>
             <Route path="/planets" element={
               <RequireAuth>
-                <Table/>
+                <PlanetsData/>
               </RequireAuth>
             }>
             </Route>
