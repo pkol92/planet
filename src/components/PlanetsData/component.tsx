@@ -1,11 +1,6 @@
-import React, { useEffect, useMemo, useState } from 'react'
-import Table from '../Table/component';
-
-
-export interface Result {
-    bodies?: [Planet],
-}
-      
+import React, { useEffect, useState } from 'react'
+import TablePage from '../Table/component';
+     
 export interface Planet {
     id: string,
     englishName: string,
@@ -16,15 +11,16 @@ export interface Planet {
 }
 
 export const PlanetsData = () => {
-    const [result, setResult] = useState<Result>({});
+    const [result, setResult] = useState<Planet[]>([]);
     
     useEffect(() => {
         const fetchItems = async () => {
             try {
                 const fetchingItems = await fetch("https://api.le-systeme-solaire.net/rest/bodies/?data=id,englishName,escape,bodyType,density,gravity");
                 const data = await fetchingItems.json();
-
-                setResult(data);
+                console.log(data)
+                setResult(data.bodies);
+                console.log(result)
             } catch (err) {
                 console.log(err);
             }
@@ -32,10 +28,8 @@ export const PlanetsData = () => {
     
         fetchItems();
     }, []);
-    
-    const memoResult = useMemo(()=> result, [result]);
       
     return (
-        <Table data={memoResult} ></Table>
+        <TablePage data={result} ></TablePage>
     )
 }

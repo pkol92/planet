@@ -1,48 +1,52 @@
 import React, { FC, useContext, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authorization/context';
-import { Result } from '../PlanetsData/component';
+import { Planet } from '../PlanetsData/component';
+import Table from './TableStructure';
 
 interface Props {
-  data: Result,
+  data: Planet[],
 }
 
-const Table: FC<Props> = ( {data} ) => {
+const TablePage: FC<Props> = ( {data} ) => {
   let navigate = useNavigate();
   const auth = useContext(AuthContext);
-
 
   const handleLogout = () => {
     auth.signout(() => navigate("/"));
   }
+
+  const columns = useMemo(() => [
+    {
+      Header: "Name",
+      accessor: "englishName"
+    },
+    {
+      Header: "Body type",
+      accessor: "bodyType"
+    },
+    {
+      Header: "Flattening",
+      accessor: "escape"
+    },
+    {
+      Header: "Density",
+      accessor: "density"
+    },
+    {
+      Header: "Gravity",
+      accessor: "gravity"
+    },
+  ],[])
     
   return (
       <div className='tablePage'>
         <button className='logoutButton' onClick={handleLogout}>Sign out</button>
-        <table className='table'>
-          <thead>
-            <tr>
-            <th>Name</th>
-            <th>Body Type</th>
-            <th>Flattening</th>
-            <th>Density</th>
-            <th>Gravity</th>
-          </tr>
-          </thead>
-          <tbody>
-            {data.bodies?.map((item) => 
-          <tr key={item.id}>
-            <td>{item.englishName}</td>
-            <td>{item.bodyType}</td> 
-            <td>{item.escape}</td>  
-            <td>{item.density}</td>
-            <td>{item.gravity}</td>
-          </tr>)}
-          </tbody>
-        </table>
+
+        <Table columns={columns} data={data}/>
       </div>
 
   )
 }
 
-export default Table;
+export default TablePage;
