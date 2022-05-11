@@ -1,42 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { FC, useContext, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authorization/context';
+import { Result } from '../PlanetsData/component';
 
-//API https://api.le-systeme-solaire.net/en/
-
-interface Result {
-  bodies?: [Planet],
+interface Props {
+  data: Result,
 }
 
-interface Planet {
-  id: string,
-  englishName: string,
-  escape: number,
-  bodyType: string,
-  density: number,
-  gravity: number,
-}
-
-const Table = () => {
-  const [result, setResult] = useState<Result>({});
+const Table: FC<Props> = ( {data} ) => {
   let navigate = useNavigate();
   const auth = useContext(AuthContext);
 
-  useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const fetchingItems = await fetch("https://api.le-systeme-solaire.net/rest/bodies/?data=id,englishName,escape,bodyType,density,gravity");
-        const data = await fetchingItems.json();
-
-        setResult(data);
-      } catch (err) {
-          console.log(err);
-      }
-      };
-
-    fetchItems();
-    
-  }, []);
 
   const handleLogout = () => {
     auth.signout(() => navigate("/"));
@@ -56,7 +30,7 @@ const Table = () => {
           </tr>
           </thead>
           <tbody>
-            {result.bodies?.map((item) => 
+            {data.bodies?.map((item) => 
           <tr key={item.id}>
             <td>{item.englishName}</td>
             <td>{item.bodyType}</td> 
@@ -71,4 +45,4 @@ const Table = () => {
   )
 }
 
-export default Table
+export default Table;
