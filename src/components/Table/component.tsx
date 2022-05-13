@@ -2,6 +2,7 @@ import React, { FC, useContext, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authorization/context';
 import { Planet } from '../PlanetsData/component';
+import { Button, TablePageStyles, TableStyles } from '../Styled/component';
 import Table from './TableStructure';
 
 interface Props {
@@ -40,11 +41,12 @@ const TablePage: FC<Props> = ( {data} ) => {
   ],[])
     
   return (
-      <div className='tablePage'>
-        <button className='logoutButton' onClick={handleLogout}>Sign out</button>
-
-        <Table columns={columns} data={data}/>
-      </div>
+      <TablePageStyles>
+        <Button onClick={handleLogout}>Sign out</Button>
+        <TableStyles>
+          <Table columns={columns} data={data}/>
+        </TableStyles>
+      </TablePageStyles>
 
   )
 }

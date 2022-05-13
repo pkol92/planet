@@ -9,15 +9,15 @@ body {
   color: #def0ff;
 }
 
-.login {
+/* .login {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
   padding: 1.3rem;
-}
+} */
 
-.header {
+/* .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,13 +25,13 @@ body {
   text-align: center;
   padding: 1rem;
   color: #f5f5f5;
-}
+} */
 
-.headerText {
+/* .headerText {
   margin: 0.8rem;
-}
+} */
 
-button {
+/* .button {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -46,7 +46,7 @@ button {
   touch-action: manipulation;
 }
 
-button:before {
+.button:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -86,7 +86,7 @@ button:before {
   }
 }
 
-button:after {
+.button:after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -96,29 +96,29 @@ button:after {
   left: 0;
   top: 0;
   border-radius: 10px;
-}
+} */
 
-.error {
+/* .error {
   color: #990505;
   padding: 0.2rem;
   margin: 0.1rem;
   background-color: rgb(255 255 255 / 29%);
   border-radius: 3px;
-}
+} */
 
-input {
+/* input {
   border-radius: 3px;
-}
+} */
 
-.tablePage {
+/* .tablePage {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 1rem;
   gap: 1rem;
-}
+} */
 
-table {
+/* table {
   text-align: justify;
   border-collapse: collapse;
   width: 60%;
@@ -126,4 +126,37 @@ table {
 
 thead {
   font-size: 1.1rem;
-}
+} */
+
+/* const Styles = styled.div`
+  padding: 1rem;
+
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+
+  .pagination {
+    padding: 0.5rem;
+  }
+` */
