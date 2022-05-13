@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Error } from '../Styled/component';
 import TablePage from '../Table/component';
      
 export interface Planet {
@@ -12,6 +13,7 @@ export interface Planet {
 
 export const PlanetsData = () => {
     const [result, setResult] = useState<Planet[]>([]);
+    const [error, setError] = useState(false);
     
     useEffect(() => {
         const fetchItems = async () => {
@@ -20,9 +22,11 @@ export const PlanetsData = () => {
                 const data = await fetchingItems.json();
                 console.log(data)
                 setResult(data.bodies);
+                setError(false);
                 console.log(result)
             } catch (err) {
                 console.log(err);
+                setError(true);
             }
         };
     
@@ -30,6 +34,8 @@ export const PlanetsData = () => {
     }, []);
       
     return (
-        <TablePage data={result} ></TablePage>
+        <div>
+           {error? <Error>Ups, something go wrong.</Error> : <TablePage data={result} ></TablePage> } 
+        </div>
     )
 }

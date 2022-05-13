@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Authorization/context';
-import { Button, Error, Header, Input, LoginStyled } from '../Styled/component';
+import { Button, ErrorLogin, Header, Input, LoginStyled } from '../Styled/component';
 
 const Login = () => {
   const auth = useContext(AuthContext);
@@ -38,7 +38,7 @@ const Login = () => {
         <label htmlFor="password"><b>Password</b></label>
         <Input type='password' placeholder='password' name='password' value={password} onChange={(e) => setPassword(e.target.value)}></Input>
 
-        {error? <Error className='error'>Wrong login or password!</Error> : null}
+        {error? <ErrorLogin>Wrong login or password!</ErrorLogin> : null}
         <Button onClick={handleLogin}>Log in</Button>
       </LoginStyled>
     </div>
