@@ -22,13 +22,24 @@ export const Input = styled.input`
     border-radius: 3px;
 `
 
-export const Error = styled.h5`
+export const ErrorLogin = styled.h5`
     color: #990505;
     padding: 0.2rem;
     margin: 0.1rem;
     background-color: rgb(255 255 255 / 29%);
     border-radius: 3px;
 `
+
+export const Error = styled.h1`
+  color: #b50808;
+  border-radius: 3px;
+  position: absolute;
+  top: 40%;
+  right: 0;
+  left: 0;
+  text-align: center;
+`
+
 
 export const Button = styled.button`
   padding: 0.6em 2em;
