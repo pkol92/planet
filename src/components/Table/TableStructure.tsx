@@ -31,7 +31,7 @@ const Table: FC<Props> = ({ columns, data }) => {
     } = useTable({
       columns,
       data,
-      initialState: { pageIndex: 1 },
+      initialState: { pageIndex: 0 },
     },
     usePagination
     )
