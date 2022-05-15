@@ -1,45 +1,44 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const LoginStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.3rem;
-`
+export const Login = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 1.3rem;
+`;
 
 export const Header = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    color: #f5f5f5;
-`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 1rem;
+	color: #f5f5f5;
+`;
 
 export const Input = styled.input`
-    border-radius: 3px;
-`
+	border-radius: 3px;
+`;
 
 export const ErrorLogin = styled.h5`
-    color: #990505;
-    padding: 0.2rem;
-    margin: 0.1rem;
-    background-color: rgb(255 255 255 / 29%);
-    border-radius: 3px;
-`
+	color: #990505;
+	padding: 0.2rem;
+	margin: 0.1rem;
+	background-color: rgb(255 255 255 / 29%);
+	border-radius: 3px;
+`;
 
 export const Error = styled.h1`
-  color: #b50808;
-  border-radius: 3px;
-  position: absolute;
-  top: 40%;
-  right: 0;
-  left: 0;
-  text-align: center;
-`
-
+	color: #b50808;
+	border-radius: 3px;
+	position: absolute;
+	top: 40%;
+	right: 0;
+	left: 0;
+	text-align: center;
+`;
 
 export const Button = styled.button`
   padding: 0.6em 2em;
@@ -105,40 +104,39 @@ export const Button = styled.button`
     left: 0;
     top: 0;
     border-radius: 10px;
-`
-
+`;
 
 export const TableStyles = styled.div`
-  padding: 1rem;
+	padding: 1rem;
 
-  table {
-    text-align: justify;
-    border-collapse: collapse;
-    width: 100%;
+	table {
+		text-align: justify;
+		border-collapse: collapse;
+		width: 100%;
 
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
+		tr {
+			:last-child {
+				td {
+					border-bottom: 0;
+				}
+			}
+		}
 
-    th,
-    td {
-      margin: 0;
-      padding: 0.4rem;
-    }
-  }
+		th,
+		td {
+			margin: 0;
+			padding: 0.4rem;
+		}
+	}
 
-  .pagination {
-    padding: 0.5rem;
-  }
-`
+	.pagination {
+		padding: 0.5rem;
+	}
+`;
 
 export const TablePageStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1rem;
+`;
