@@ -21,7 +21,7 @@ const LoginPage = () => {
 	//check if data login are correct
 	const handleLogin = () => {
 		if (user === auth.hardUser.name && password === auth.hardUser.password) {
-			auth.signin(auth.hardUser, () => navigate("../planet/data"));
+			auth.signin(auth.hardUser, () => navigate("/planet/data"));
 		} else {
 			setError(true);
 		}
