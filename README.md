@@ -4,14 +4,14 @@
 
 After cloning your current project, be sure to run:
 
-npm install
+**npm install**
 
 to install all dependencies. You can start the project with the command:
 
-npm start
+**npm start** <br/>
 
-On the home page, to login correctly fill the inputs with:
-login: Astronaut
+On the home page, to login correctly fill the inputs with: <br/>
+login: Astronaut <br/>
 password: Planet1
 
 ## Project description
