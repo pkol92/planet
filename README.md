@@ -1,5 +1,8 @@
 # Planet app
 
+## Project demo
+You can see the demo at: https://pkol92.github.io/planet
+
 ## Project launch
 
 After cloning your current project, be sure to run:
