@@ -6,7 +6,7 @@ const RequireAuth = ({ children }: { children: JSX.Element }) => {
 	const auth = useContext(AuthContext);
 
 	if (!auth.user) {
-		return <Navigate to="/" replace />;
+		return <Navigate to="/planet" replace />;
 	}
 
 	return children;
