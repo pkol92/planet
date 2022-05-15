@@ -11,9 +11,9 @@ function App() {
 		<AuthProvider>
 			<Router>
 				<Routes>
-					<Route path="planet/" element={<LoginPage />}></Route>
+					<Route path="/planet/" element={<LoginPage />}></Route>
 					<Route
-						path="planet/data"
+						path="/planet/data"
 						element={
 							<RequireAuth>
 								<PlanetsData />
