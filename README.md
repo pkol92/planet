@@ -1,6 +1,7 @@
 # Planet app
 
 ## Project demo
+
 You can see the demo at: https://pkol92.github.io/planet
 
 ## Project launch
@@ -25,4 +26,4 @@ If you log out, you can't go to /planets and you will be redirect to home page w
 
 ## Stack of project
 
-Technologies used: HTML, CSS, React, JavaScript, TypeScript, React Router, React Table, Styled Components.
+Technologies used: HTML, CSS, React, JavaScript, TypeScript, React Router, React Table, Styled Components, Axios.

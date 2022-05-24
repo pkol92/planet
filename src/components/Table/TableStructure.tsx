@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useTable, usePagination } from "react-table";
-import { Planet } from "../PlanetsData/component";
+import { Planet } from "../PlanetsData/fetchApi";
 
 interface Props {
 	columns: {
