@@ -30,7 +30,7 @@ export const ErrorLogin = styled.h5`
 	border-radius: 3px;
 `;
 
-export const Error = styled.h1`
+export const Center = styled.h1`
 	color: #b50808;
 	border-radius: 3px;
 	position: absolute;

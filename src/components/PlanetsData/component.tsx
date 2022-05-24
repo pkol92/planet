@@ -1,5 +1,7 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Error } from "../Styled/component";
+import Loading from "../Loading/component";
+import { Center } from "../Styled/component";
 import TablePage from "../Table/component";
 
 //API: https://api.le-systeme-solaire.net/en/
@@ -15,33 +17,37 @@ export interface Planet {
 
 export const PlanetsData = () => {
 	const [result, setResult] = useState<Planet[]>([]);
+	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
 
 	//take data from API
 	useEffect(() => {
-		const fetchItems = async () => {
+		const fetchData = async () => {
 			try {
-				const fetchingItems = await fetch(
+				const { data: response } = await axios.get(
 					"https://api.le-systeme-solaire.net/rest/bodies/?data=id,englishName,escape,bodyType,density,gravity",
 				);
-				const data = await fetchingItems.json();
-				setResult(data.bodies);
+				setResult(response.bodies);
 				setError(false);
 			} catch (err) {
 				console.log(err);
 				setError(true);
 			}
+			setLoading(false);
 		};
 
-		fetchItems();
+		fetchData();
 	}, []);
 
 	return (
 		<div>
 			{error ? (
-				<Error>Ups, something go wrong.</Error>
+				<Center>Ups, something go wrong.</Center>
 			) : (
-				<TablePage data={result}></TablePage>
+				<div>
+					{loading && <Loading />}
+					{!loading && <TablePage data={result}></TablePage>}
+				</div>
 			)}
 		</div>
 	);
