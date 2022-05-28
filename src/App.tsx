@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./components/Authorization/context";
-import RequireAuth from "./components/Authorization/requireAuth";
+import { AuthProvider } from "./context/context";
+import RequireAuth from "./components/Authorization/component";
 import { PlanetsData } from "./components/PlanetsData/component";
 import NotFoundPage from "./components/NotFoundPage/component";
 import LoginPage from "./components/Login/component";

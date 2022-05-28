@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authorization/context";
+import { AuthContext } from "../../context/context";
 import { Button, ErrorLogin, Header, Input, Login } from "../Styled/component";
 
 const LoginPage = () => {

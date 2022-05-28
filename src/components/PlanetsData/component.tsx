@@ -1,7 +1,7 @@
 import Loading from "../Loading/component";
 import { Center } from "../Styled/component";
 import TablePage from "../Table/component";
-import FetchApi from "./fetchApi";
+import FetchApi from "../../API/fetchApi";
 
 export const PlanetsData = () => {
 	const { result, loading, error } = FetchApi();
