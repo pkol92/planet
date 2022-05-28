@@ -7,7 +7,7 @@ const NotFoundPage = () => {
 		<div>
 			<Center>Page not Found</Center>
 			<Center style={{ top: "50%" }}>
-				<Link style={{ color: "#f5f5f5", fontSize: "1.5rem" }} to="/planet">
+				<Link style={{ color: "#f5f5f5", fontSize: "1.5rem" }} to="/">
 					Go Home
 				</Link>
 			</Center>
