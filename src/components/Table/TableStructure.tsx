@@ -41,27 +41,46 @@ const Table: FC<Props> = ({ columns, data }) => {
 		<>
 			<table {...getTableProps()}>
 				<thead>
-					{headerGroups.map((headerGroup) => (
-						<tr {...headerGroup.getHeaderGroupProps()}>
-							{headerGroup.headers.map((column) => (
-								<th {...column.getHeaderProps()}>{column.render("Header")}</th>
-							))}
-						</tr>
-					))}
+					{headerGroups.map(
+						(headerGroup: {
+							getHeaderGroupProps: () => JSX.IntrinsicAttributes &
+								React.ClassAttributes<HTMLTableRowElement> &
+								React.HTMLAttributes<HTMLTableRowElement>;
+							headers: any[];
+						}) => (
+							<tr {...headerGroup.getHeaderGroupProps()}>
+								{headerGroup.headers.map((column) => (
+									<th {...column.getHeaderProps()}>
+										{column.render("Header")}
+									</th>
+								))}
+							</tr>
+						),
+					)}
 				</thead>
 				<tbody {...getTableBodyProps()}>
-					{page.map((row, i) => {
-						prepareRow(row);
-						return (
-							<tr {...row.getRowProps()}>
-								{row.cells.map((cell) => {
-									return (
-										<td {...cell.getCellProps()}>{cell.render("Cell")}</td>
-									);
-								})}
-							</tr>
-						);
-					})}
+					{page.map(
+						(
+							row: {
+								getRowProps: () => JSX.IntrinsicAttributes &
+									React.ClassAttributes<HTMLTableRowElement> &
+									React.HTMLAttributes<HTMLTableRowElement>;
+								cells: any[];
+							},
+							i: any,
+						) => {
+							prepareRow(row);
+							return (
+								<tr {...row.getRowProps()}>
+									{row.cells.map((cell) => {
+										return (
+											<td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+										);
+									})}
+								</tr>
+							);
+						},
+					)}
 				</tbody>
 			</table>
 			<div className="pagination">
