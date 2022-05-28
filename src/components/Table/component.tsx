@@ -1,7 +1,7 @@
 import { FC, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../Authorization/context";
-import { Planet } from "../PlanetsData/fetchApi";
+import { AuthContext } from "../../context/context";
+import { Planet } from "../../API/fetchApi";
 import { Button, TablePageStyles, TableStyles } from "../Styled/component";
 import Table from "./TableStructure";
 
