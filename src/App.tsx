@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/context";
 import RequireAuth from "./components/Authorization/component";
 import { PlanetsData } from "./components/PlanetsData/component";
@@ -11,9 +11,9 @@ function App() {
 		<AuthProvider>
 			<Router>
 				<Routes>
-					<Route path="/planet/" element={<LoginPage />}></Route>
+					<Route path="/" element={<LoginPage />}></Route>
 					<Route
-						path="/planet/data"
+						path="/data"
 						element={
 							<RequireAuth>
 								<PlanetsData />

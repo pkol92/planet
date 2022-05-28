@@ -14,7 +14,7 @@ const TablePage: FC<Props> = ({ data }) => {
 	const auth = useContext(AuthContext);
 
 	const handleLogout = () => {
-		auth.signout(() => navigate("/planet"));
+		auth.signout(() => navigate("/"));
 	};
 
 	const columns = useMemo(
